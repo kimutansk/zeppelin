@@ -37,10 +37,10 @@
     <!--library versions-->
     <interpreter.name>flink</interpreter.name>
     <flink.version>1.6.1</flink.version>
-    <flink.akka.version>2.4.20</flink.akka.version>
+    <flink.akka.version>2.4.17</flink.akka.version>
     <scala.macros.version>2.1.0</scala.macros.version>
     <scala.binary.version>2.11</scala.binary.version>
-    <scala.version>2.11.12</scala.version>
+    <scala.version>2.11.8</scala.version>
 
     <!--plugin versions-->
     <plugin.scalamaven.version>3.2.2</plugin.scalamaven.version>
