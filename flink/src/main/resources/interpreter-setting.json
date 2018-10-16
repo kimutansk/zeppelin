@@ -7,16 +7,37 @@
       "host": {
         "envName": "host",
         "propertyName": null,
-        "defaultValue": "local",
-        "description": "host name of running JobManager. 'local' runs flink in local mode.",
+        "defaultValue": "localhost",
+        "description": "host name of running JobManager. needed when executionMode is 'remote'.",
         "type": "string"
       },
       "port": {
         "envName": "port",
         "propertyName": null,
         "defaultValue": "6123",
-        "description": "port of running JobManager.",
+        "description": "port of running JobManager. needed when executionMode is 'remote'.",
         "type": "number"
+      },
+      "executionMode": {
+        "envName": "executionMode",
+        "propertyName": null,
+        "defaultValue": "local",
+        "description": "Flink execution mode. select from [local | remote | yarn].",
+        "type": "string"
+      },
+      "externalJars": {
+        "envName": "externalJars",
+        "propertyName": null,
+        "defaultValue": "",
+        "description": "additional jars to be used in Flink. comma separeted paths.",
+        "type": "string"
+      },
+      "yarnConfigDir": {
+        "envName": "configDir",
+        "propertyName": null,
+        "defaultValue": "",
+        "description": "YARN config directory. needed when executionMode is 'yarn'.",
+        "type": "string"
       }
     },
     "editor": {

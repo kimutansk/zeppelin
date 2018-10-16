@@ -58,7 +58,11 @@ class FlinkScalaInterpreter(val properties: Properties) {
 
   def open(): Unit = {
     var config = Config(executionMode = ExecutionMode.withName(
-      properties.getProperty("flink.execution.mode", "LOCAL").toUpperCase))
+      properties.getProperty("executionMode", "LOCAL").toUpperCase),
+      host = Option(properties.getProperty("host")), port = Option(properties.getProperty("port").toInt),
+      externalJars = Option(properties.getProperty("externalJars").split(",")),
+      configDir = Option(properties.getProperty("configDir"))
+    )
     val containerNum = Integer.parseInt(properties.getProperty("flink.yarn.num_container", "1"))
     config = config.copy(yarnConfig =
       Some(ensureYarnConfig(config).copy(containers = Some(containerNum))))
@@ -79,7 +83,7 @@ class FlinkScalaInterpreter(val properties: Properties) {
       (repl, cluster)
     } catch {
       case e: IllegalArgumentException =>
-        println(s"Error: ${e.getMessage}")
+        LOGGER.error(s"Error: ${e.getMessage}", e)
         sys.exit()
     }
 
