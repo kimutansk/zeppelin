@@ -14,7 +14,7 @@
       "port": {
         "envName": "port",
         "propertyName": null,
-        "defaultValue": "6123",
+        "defaultValue": "8081",
         "description": "port of running JobManager. needed when executionMode is 'remote'.",
         "type": "number"
       },
