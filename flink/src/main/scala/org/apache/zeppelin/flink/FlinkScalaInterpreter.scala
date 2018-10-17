@@ -57,9 +57,14 @@ class FlinkScalaInterpreter(val properties: Properties) {
   private var z: FlinkZeppelinContext = _
 
   def open(): Unit = {
+    val externalJarsProp = properties.getProperty("externalJars", "") match {
+      case "" => None
+      case otherStr => Some(otherStr.split(","))
+    }
     var config = Config(executionMode = ExecutionMode.withName(
       properties.getProperty("executionMode", "LOCAL").toUpperCase),
       host = Option(properties.getProperty("host")), port = Option(properties.getProperty("port").toInt),
+      externalJars = externalJarsProp,
       configDir = Option(properties.getProperty("configDir"))
     )
     val containerNum = Integer.parseInt(properties.getProperty("flink.yarn.num_container", "1"))
