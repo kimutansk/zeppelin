@@ -25,13 +25,6 @@
         "description": "Flink execution mode. select from [local | remote | yarn].",
         "type": "string"
       },
-      "externalJars": {
-        "envName": "externalJars",
-        "propertyName": null,
-        "defaultValue": "",
-        "description": "additional jars to be used in Flink. comma separeted paths.",
-        "type": "string"
-      },
       "yarnConfigDir": {
         "envName": "configDir",
         "propertyName": null,

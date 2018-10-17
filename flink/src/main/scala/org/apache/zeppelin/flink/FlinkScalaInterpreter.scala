@@ -60,7 +60,6 @@ class FlinkScalaInterpreter(val properties: Properties) {
     var config = Config(executionMode = ExecutionMode.withName(
       properties.getProperty("executionMode", "LOCAL").toUpperCase),
       host = Option(properties.getProperty("host")), port = Option(properties.getProperty("port").toInt),
-      externalJars = Option(properties.getProperty("externalJars").split(",")),
       configDir = Option(properties.getProperty("configDir"))
     )
     val containerNum = Integer.parseInt(properties.getProperty("flink.yarn.num_container", "1"))
